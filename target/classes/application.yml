@@ -1,0 +1,20 @@
+spring:
+  application:
+    name: SHOP-RESISTRATION
+  jpa:
+    show-sql:  true
+    hibernate:
+      ddl-auto: validate
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/practice?zeroDateTimeBehavior=convertToNull&useSSL=false&useServerPrepareStatement=true
+    username: root
+    password: root
+  config:
+    import: configserver:http://localhost:8086
+  webflux:
+    base-path: /shopresistration
+server:
+    servlet:
+    port: 8014
